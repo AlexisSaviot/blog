@@ -44,8 +44,9 @@
                 </div>
                 <div>
                     <p><?php echo $comment['content'] ?></p>
+                    
                 </div>
-            <?php } ?>   
+                <?php } ?>
         </div>
     </div>
 </div>

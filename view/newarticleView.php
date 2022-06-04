@@ -22,9 +22,9 @@
             <p>Select the category</p>
                     <?php
                         foreach ($tag as $tag) { ?>
-                        <input type="checkbox" value="<?php echo $tag['caid']?>" name="tag<?php echo $tag['caid']?>" 
+                        <input type="checkbox" value="<?php echo $tag['id']?>" name="tag<?php echo $tag['id']?>" 
                         id="<?php echo $tag['name']?>"><?php echo $tag['name']?>
-                        <label for="<?php echo $tag['caid']?>"></label>
+                        <label for="<?php echo $tag['id']?>"></label>
                     <?php } ?>
             </div>
             <div>

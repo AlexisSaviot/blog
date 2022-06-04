@@ -3,7 +3,7 @@ session_start();
 function db_connect(){
     include 'connections.php';
     try {
-        $db = new PDO('mysql:host=localhost:8889;dbname=blog', $user, $pass);
+        $db = new PDO('mysql:host=127.0.0.1:3306;dbname=blog', $user, $pass);
         return $db;        
     } catch(PDOException $e) {
         print "Error!: " . $e->getMessage() . "<br/>";
@@ -166,7 +166,7 @@ function addArticle($value1, $value2, $value3, $value4){
 function setArticleTag($value1, $value2){
     $connection = db_connect();
     $query = "  INSERT INTO `article_category`
-                VALUES (null, :article_id, :category_id)";
+                VALUES (:article_id, :category_id)";
     $stmt = $connection->prepare($query);
     $stmt->bindParam(':article_id', $value1);
     $stmt->bindParam(':category_id', $value2);
@@ -179,8 +179,8 @@ function getLastArticle($value1, $value2, $value3 ){
     WHERE `title` = '$value1' AND `image` = '$value2' AND `content` = '$value3'";
     $stmt = $connection->prepare($query);
     $stmt->execute();
-    $lastArticle = $stmt->fetch(PDO::FETCH_ASSOC);
-    return $lastArticle;
+    $result = $stmt->fetch(PDO::FETCH_ASSOC);
+    return $result;
 }
 
 function getTags(){
@@ -193,13 +193,15 @@ function getTags(){
     return $results;
 }
 
-function addComment($pseudo, $content, $id){
+function addComment($pseudo, $content, $date, $id, $userid){
     $con = db_connect();
-    $query = 'INSERT INTO commentaires (id, pseudo, content, article_id)
-    VALUES(null, :pseudo, :content, :article_id)';
+    $query = "INSERT INTO commentaires (id, `date`, pseudo, content, article_id, `user_id`)
+    VALUES(null, :date, :pseudo, :content, :article_id, :user_id)";
     $stmt = $con->prepare($query);
-    $stmt->bindValue(':pseudo', $pseudo, PDO::PARAM_STR);
-    $stmt->bindValue(':content', $content, PDO::PARAM_STR);
-    $stmt->bindValue(':article_id', $id, PDO::PARAM_INT);
+    $stmt->bindParam(':pseudo', $pseudo, PDO::PARAM_STR);
+    $stmt->bindParam(':content', $content, PDO::PARAM_STR);
+    $stmt->bindParam(':date', $date, PDO::PARAM_STR);
+    $stmt->bindParam(':article_id', $id, PDO::PARAM_INT);
+    $stmt->bindParam(':user_id', $userid, PDO::PARAM_INT);
     $stmt->execute();
 }

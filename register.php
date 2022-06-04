@@ -7,7 +7,6 @@ require 'functions.php';
     $pseudo = $_POST['pseudo'];
     $email = $_POST['email'];
     $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
-    // echo $lastname." ".$firstname." ".$pseudo." ".$email.
     addUser($lastname, $firstname, $pseudo, $email, $password);
   }
 

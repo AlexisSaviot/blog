@@ -1,2 +1,3 @@
-old/
-img/*
+old
+img/*.jpg
+img/*.png
