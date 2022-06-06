@@ -1,2 +1,5 @@
-old/
-img/*
+old
+img/*.jpg
+img/*.png
+/connections.php
+/.htaccess
