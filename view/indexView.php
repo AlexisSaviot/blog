@@ -8,9 +8,9 @@
                     <img src="<?php echo $article['image']?>" class="card-img-top" alt="<?php echo $article['title'] ?>">
                     <div class="card-body">
                         <h5 class="card-title"><?php echo $article['title'] ?></h5>
-                        <span>Auteur : </span><a href="user.php?id=<?php echo $article['ui'] ?>" class="text-secondary"><?php echo $article['pseudo'] ?></a>
-                        <a href="article.php?id=<?php echo $article['aid']?>">Lire l'article</a>
-                        <button onclick="window.location.href = 'tag.php?id=<?php echo $article['caid']?>'" type="button" class="btn">
+                        <span>Auteur : </span><a href="user/<?php echo $article['ui'] ?>" class="text-secondary"><?php echo $article['pseudo'] ?></a>
+                        <a href="article/<?php echo $article['aid']?>">Lire l'article</a>
+                        <button onclick="window.location.href = 'tag/<?php echo $article['caid']?>'" type="button" class="btn">
                             <span class="badge badge-light"><?php echo $article['name']?></span>
                         </button>
                     </div>
