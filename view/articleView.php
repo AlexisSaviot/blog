@@ -4,7 +4,7 @@
     <div>
         <div>
             <?php echo $article['title'] . "</br>" ?>
-            <a href="user.php?id=<?php echo $article['ud'] ?>"><?php echo $article['pseudo'] ?></a>
+            <a href="user/<?php echo $article['ud'] ?>"><?php echo $article['pseudo'] ?></a>
             <?php echo $article['date']?>
         </div>
         <div>
@@ -13,7 +13,7 @@
         <div>
             <p><?php echo $article['content']?></p>
         <div>
-            <button onclick="window.location.href = 'tag.php?id=<?php echo $article['caid']?>'" type="button" class="btn">
+            <button onclick="window.location.href = 'tag/<?php echo $article['caid']?>'" type="button" class="btn">
                 <span class="badge badge-light"><?php echo $article['name']?></span>
             </button>
         </div> 
