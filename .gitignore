@@ -1,5 +1,4 @@
 old
-img/*.jpg
-img/*.png
-/connections.php
-/.htaccess
+img/*.*
+connections.php
+.gitignore

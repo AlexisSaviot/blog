@@ -3,7 +3,7 @@ session_start();
 function db_connect(){
     include 'connections.php';
     try {
-        $db = new PDO('mysql:host=127.0.0.1:3306;dbname=blog', $user, $pass);
+        $db = new PDO("mysql:host=$localhost;dbname=$dbname", $user, $pass);
         return $db;        
     } catch(PDOException $e) {
         print "Error!: " . $e->getMessage() . "<br/>";
