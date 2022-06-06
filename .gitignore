@@ -1,3 +1,7 @@
 old
 img/*.jpg
 img/*.png
+img/*.jpeg
+connections.php
+/connections.php
+./connections.php

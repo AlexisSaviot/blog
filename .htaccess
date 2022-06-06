@@ -1,23 +1,29 @@
-------------------------------
+#------------------------------
 # Config
-------------------------------
+#------------------------------
 
 # Le serveur doit suivre les liens symboliques
-# Options +FollowSymlinks
+Options +FollowSymlinks +SymLinksIfOwnerMatch 
 
 # Activation du module de réécriture d'url
 RewriteEngine on
 
-------------------------------
-# Règles de redirection d'url
-------------------------------
-
-RewriteCond %{HTTPS} !=on
-RewriteRule .* https://%{HTTP_HOST}%{REQUEST_URI} [R=301]
-
-------------------------------
+#------------------------------
 # Règles de réécriture d'url
-------------------------------
+#------------------------------
 
-RewriteCond %{REQUEST_URI} ^/index\.php/
-RewriteRule ^accueil$ index.php
+RewriteRule ^accueil$ index.php [L]
+RewriteRule ^wr_article$ newarticle.php [L]
+
+#------------------------------
+# Règles de redirection d'url
+#------------------------------
+
+#RewriteCond %{HTTPS} !=on
+#RewriteRule .* https://%{HTTP_HOST}%{REQUEST_URI} [R=301]
+
+#RewriteCond %{REQUEST_FILENAME} !-f 
+#RewriteCond %{REQUEST_FILENAME} !-d
+#RewriteRule . /accueil [L]
+
+#RewriteRule ^$ /accueil [L]

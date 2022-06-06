@@ -13,7 +13,7 @@
               <a class="nav-link" href="#"><span>Bonjour <?php echo $user ?></span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="newarticle.php">New article</a>
+              <a class="nav-link" href="wr_article">New article</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="logout.php">Log out</a>
